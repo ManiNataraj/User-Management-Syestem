@@ -1,0 +1,219 @@
+/* EditProfile.css */
+
+.editprofile-form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.editprofile-form-container h2 {
+  color: #2c3e50;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-align: center;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 15px;
+}
+
+/* Success and Error Messages */
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border-left: 4px solid #28a745;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 12px 16px;
+  border-radius: 6px;
+  border-left: 4px solid #dc3545;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Form Styling */
+.editprofile-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Input Fields */
+.editprofile-form-container input[type="text"],
+.editprofile-form-container input[type="email"],
+.editprofile-form-container input[type="tel"],
+.editprofile-form-container textarea,
+.editprofile-form-container select {
+  width: 100%;
+  padding: 8px;
+  font-size: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  background-color: #f9f9f9;
+}
+
+.editprofile-form-container input[type="text"]:focus,
+.editprofile-form-container input[type="email"]:focus,
+.editprofile-form-container input[type="tel"]:focus,
+.editprofile-form-container textarea:focus,
+.editprofile-form-container select:focus {
+  outline: none;
+  border-color: #3498db;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.editprofile-form-container textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+/* File Input */
+.editprofile-form-container input[type="file"] {
+  padding: 10px;
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.editprofile-form-container input[type="file"]:hover {
+  border-color: #3498db;
+  background-color: #f0f8ff;
+}
+
+/* Labels */
+.editprofile-form-container label {
+  font-weight: 600;
+  color: #555;
+  font-size: 14px;
+  margin-bottom: -10px;
+  display: block;
+}
+
+/* Profile Image Display */
+.editprofile-form-container img {
+  display: block;
+  margin: 10px auto 15px;
+  border: 3px solid #3498db;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Role Selection Div */
+.editprofile-form-container > form > div {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.editprofile-form-container > form > div label {
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.editprofile-form-container select {
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+/* Buttons */
+.editprofile-form-container button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.editprofile-form-container button[type="submit"] {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
+}
+
+.editprofile-form-container button[type="submit"]:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #1f6ca5 100%);
+  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+  transform: translateY(-2px);
+}
+
+.editprofile-form-container button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+}
+
+/* Navigation Buttons */
+.editprofile-form-container > p > button {
+  background-color: #6c757d;
+  color: white;
+  width: 100%;
+}
+
+.editprofile-form-container > p > button:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading State */
+.editprofile-form-container.loading {
+  text-align: center;
+  color: #6c757d;
+  font-size: 18px;
+  padding: 60px 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .editprofile-form-container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .editprofile-form-container h2 {
+    font-size: 24px;
+  }
+
+  .editprofile-form-container input[type="text"],
+  .editprofile-form-container input[type="email"],
+  .editprofile-form-container input[type="tel"],
+  .editprofile-form-container textarea,
+  .editprofile-form-container select {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  .editprofile-form-container button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .editprofile-form-container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .editprofile-form-container h2 {
+    font-size: 20px;
+  }
+}

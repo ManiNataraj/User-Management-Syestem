@@ -1,0 +1,152 @@
+/*
+ * General Body Styling (Darker Background, Subtle Gradient)
+ */
+
+/*
+ * The main container (Login Card)
+ */
+.form-container {
+    align-items: center;
+    width: 90%;
+    max-width: 400px; /* Slightly narrower for a focused look */
+    background-color: #ffffff;
+    padding: 50px 100px 90px 90px; /* Increased padding */
+    border-radius: 18px; /* More rounded corners */
+    /* Deeper, layered shadow for a 'floating' effect */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05); 
+    transition: transform 0.3s ease-out;
+    
+}
+
+/* Hover effect on the card */
+.form-container :hover {
+    transform: translateY(-1px);
+}
+
+/*
+ * Heading Style
+ */
+.form-container h2 {
+    text-align: center; /* Aligned left for a modern touch */
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    font-size: 2rem; /* Larger title */
+    font-weight: 700; /* Bolder */
+}
+
+/*
+ * Error Message Styling
+ */
+.error-message {
+    background-color: #fcebeb; /* Lighter error color */
+    color: #d9534f; 
+    padding: 12px 15px;
+    border-left: 5px solid #d9534f; /* Accent border on the left */
+    border-radius: 4px;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/*
+ * Form Styling
+ */
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased spacing between fields */
+}
+
+/*
+ * Input Field Styling
+ */
+.form-container input {
+    width: 100%;
+    padding: 15px 18px; /* Increased padding */
+    border: 1px solid #cccccc;
+    border-radius: 10px; /* Slightly rounded inputs */
+    font-size: 1rem;
+    color: #333333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-container input::placeholder {
+    color: #999999;
+}
+
+.form-container input:focus {
+    border-color: #6c5ce7; /* A modern purple/indigo brand color */
+    outline: none;
+    /* Subtle glow effect on focus */
+    box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.15); 
+}
+
+
+/*
+ * Button Styling
+ */
+.form-container button {
+    /* Use the same brand color */
+    background-color: #6c5ce7; 
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px; 
+    font-size: 1.1rem; /* Slightly larger text */
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.form-container button:hover {
+    background-color: #4a4198; /* Darker purple on hover */
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+}
+
+.form-container button:active {
+    transform: scale(0.98); 
+}
+
+/*
+ * Registration Link Styling
+ */
+.register-text {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: #3a2c2c;
+}
+
+.register-text a {
+    color: #c2de0f; /* Match brand color */
+    text-decoration: none;
+    font-weight: 600; /* Bolder link text */
+    transition: color 0.3s;
+}
+
+.register-text a:hover {
+    color: #97b512;
+    text-decoration: underline;
+}
+
+.login-text {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: #676081;
+}
+
+.login-text a {
+    color: #099c10; /* Match brand color */
+    text-decoration: none;
+    font-weight: 600; /* Bolder link text */
+    transition: color 0.3s;
+}
+
+.login-text a:hover {
+    color: #054b0b;
+    text-decoration: underline;
+}
