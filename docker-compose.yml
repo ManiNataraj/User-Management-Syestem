@@ -1,0 +1,61 @@
+services:
+  # 1. DATABASE SERVICE (MySQL)
+  mysql_db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      # These must match the credentials in your ums-backend/.env file
+      MYSQL_ROOT_PASSWORD: your_mysql_root_password
+      MYSQL_DATABASE: ums_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: your_mysql_root_password
+    ports:
+      # Maps container port 3306 to host port 3306 (Optional: for local DB access)
+      - "3307:3306"
+    volumes:
+      # Persists data to the host machine so it survives container restarts
+      - db_data:/var/lib/mysql
+
+  # 2. BACKEND SERVICE (Node.js API)
+  backend:
+    build: 
+      context: ./ums-backend # Tells Docker where the Backend Dockerfile is
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "5000:5000" # Host:Container
+
+    volumes:
+    - ./ums-backend:/app
+    - /app/node_modules
+
+    # --------------------
+
+    environment:
+      # Inject environment variables from the host into the container
+      # IMPORTANT: Use 'mysql_db' as the host name, not 'localhost', because 
+      # it's the service name within the Docker network
+      DB_HOST: mysql_db 
+      DB_USER: root
+      DB_PASSWORD: your_mysql_root_password
+      DB_NAME: ums_db
+      PORT: 5000
+      JWT_SECRET: SUPER_SECURE_JWT_KEY
+      REFRESH_SECRET: SUPER_SECURE_REFRESH_KEY
+    depends_on:
+      - mysql_db # Ensures database starts before the backend attempts to connect
+
+  # 3. FRONTEND SERVICE (React App)
+  frontend:
+    build:
+      context: ./ums-frontend # Tells Docker where the Frontend Dockerfile is
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "80:80" # Maps host port 80 (or 3000 if preferred) to container port 80
+    depends_on:
+      - backend # Ensures backend is up before the frontend runs (optional, but good)
+      
+# Docker Volumes for persistent database storage
+volumes:
+  db_data: {}

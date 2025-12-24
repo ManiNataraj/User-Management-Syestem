@@ -1,5 +1,5 @@
 const User = require('../models/userModel');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
@@ -8,7 +8,7 @@ const generateTokens = (user) => {
     const payload = { id: user.id, role: user.role };
     
     // Access Token (1 hour expiry)
-    const accessToken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '60s' });
+    const accessToken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
     
     // Refresh Token (7 days expiry)
     const refreshToken = jwt.sign(payload, process.env.REFRESH_SECRET, { expiresIn: '7d' });

@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# 🚀 Full-Stack User Management System (UMS)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a robust, full-stack implementation of a User Management System (UMS), adhering strictly to the technical assignment specifications. It emphasizes security, RESTful architecture, and role-based access control (RBAC).
 
-## Available Scripts
+## 🛠️ Technology Stack & Key Features
 
-In the project directory, you can run:
+| Component | Technology | Description |
+| :--- | :--- | :--- |
+| **Frontend** | **React.js** | Client-side dashboard and user interface. |
+| **Backend** | **Node.js** (Express.js) | REST API endpoints and business logic. |
+| **Database** | **MySQL** | Persistent data storage and user management. |
+| **Security** | **JWT** (Access/Refresh Tokens) | Secure authentication and session management. |
+| **Hashing** | **bcrypt** | Secure one-way password hashing for user credentials. |
+| **Access Control** | **RBAC** | Role-Based Access Control protecting the Admin Panel. |
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 📁 Project Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The project uses a clean, separated service architecture within a single workspace:
 
-### `npm test`
+ums/ ├── ums-backend/ # Node.js API (Port 5000) ├── ums-frontend/ # React Application (Port 3000) └── README.md # This file
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## ⚙️ I. Getting Started: Local Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Before starting, ensure you have the following installed on your system:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **Node.js** (Version 18 or higher recommended)
+* **MySQL Server**
+* **Git**
 
-### `npm run eject`
+### 2. Database Configuration
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1.  Ensure your **MySQL Server** is running.
+2.  Create an empty database named **`ums_db`**.
+3.  Create a file named **`.env`** inside the **`ums-backend`** directory and configure your local database credentials and JWT secrets:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```env
+    # ums-backend/.env
+    DB_HOST=localhost
+    DB_USER=root
+    DB_PASSWORD=your_mysql_password
+    DB_NAME=ums_db
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    PORT=5000
+    JWT_SECRET=SUPER_SECURE_JWT_KEY_1
+    REFRESH_SECRET=SUPER_SECURE_REFRESH_KEY_2
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3. Install Dependencies
 
-## Learn More
+You must install dependencies for both the frontend and backend. Run these commands from the **root** folder (`ums/`), navigating into each sub-folder:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# Install backend dependencies
+cd ums-backend
+npm install
+npm run dev
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Install frontend dependencies
+cd ../ums-frontend
+npm install
+npm start

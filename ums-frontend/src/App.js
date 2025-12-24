@@ -8,7 +8,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 
 // --- Protected Route Components ---
 
-/**
+/**;
  * Ensures the user is logged in before rendering the children.
  * If not authenticated, redirects to /login.
  */
